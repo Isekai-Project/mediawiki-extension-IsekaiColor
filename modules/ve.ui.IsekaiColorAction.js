@@ -26,6 +26,8 @@ ve.ui.IsekaiColorAction.static.methods = ['set', 'clear'];
  * @return {boolean} Action was executed
  */
 ve.ui.IsekaiColorAction.prototype.set = function(color) {
+    if (!color) return false;
+
     ve.track('activity.color', { action: 'set' });
 
     var trimmedFragment,
@@ -40,7 +42,7 @@ ve.ui.IsekaiColorAction.prototype.set = function(color) {
         }
     }
 
-    fragment.annotateContent('set', 'color', { attributes: { color } });
+    fragment.annotateContent('set', 'color', { type: 'color', attributes: { color } });
     return true;
 };
 

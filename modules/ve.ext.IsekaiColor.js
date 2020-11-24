@@ -9,7 +9,7 @@ function getToolbarGroupId(name, target) {
     return false;
 }
 
-function fixTarget( target ) {
+function fixTarget(target) {
     //注入工具栏
     var pageMenuId = getToolbarGroupId('style', target);
     target.static.toolbarGroups.splice(pageMenuId + 1, 0, {
@@ -17,15 +17,16 @@ function fixTarget( target ) {
         indicator: 'down',
         type: 'list',
         icon: 'textColorDanger',
+        title: OO.ui.deferMsg('isekai-color-toolbar-color'),
         invisibleLabel: false,
-        include: [{group: 'color'}],
+        include: [{ group: 'color' }],
     });
 }
 
-for(var name in ve.init.mw.targetFactory.registry){
+for (var name in ve.init.mw.targetFactory.registry) {
     fixTarget(ve.init.mw.targetFactory.lookup(name));
 }
 
-ve.init.mw.targetFactory.on('register', function (name, target) {
+ve.init.mw.targetFactory.on('register', function(name, target) {
     fixTarget(target);
 });

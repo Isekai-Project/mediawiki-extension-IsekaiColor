@@ -43,7 +43,16 @@
                 "desktop",
                 "mobile"
             ],
-            "messages": []
+            "messages": [
+                "isekai-color-toolbar-color",
+                "isekai-color-none",
+                "isekai-color-primary",
+                "isekai-color-secondary",
+                "isekai-color-info",
+                "isekai-color-success",
+                "isekai-color-warning",
+                "isekai-color-danger"
+            ]
         },
         "ext.isekai.color": {
             "targets": [

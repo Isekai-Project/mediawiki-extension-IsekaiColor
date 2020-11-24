@@ -1,6 +1,12 @@
 {
     "isekai-color-desc": "设置着重颜色",
     "isekai-color": "异世界百科 文字颜色",
-    "isekai-color-toolbar-paragraph-format": "文字颜色",
-    "isekai-color-visualeditor-toolbar-format-tooltip": "设置文字颜色"
+    "isekai-color-toolbar-color": "文字颜色",
+    "isekai-color-none": "无强调色",
+    "isekai-color-primary": "主要",
+    "isekai-color-secondary": "次要",
+    "isekai-color-info": "信息",
+    "isekai-color-success": "完成/绿",
+    "isekai-color-warning": "警示/黄",
+    "isekai-color-danger": "重要/红"
 }
