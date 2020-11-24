@@ -43,7 +43,6 @@ ve.dm.IsekaiColorNode.static.toDomElements = function(dataElement, doc) {
         },
     }));
     divElement.setAttribute('data-color', dataElement.attributes.color);
-    console.log(divElement);
     return [divElement];
 };
 
