@@ -1,0 +1,91 @@
+{
+    "name": "Isekai VisualEditor Color",
+    "author": "Hyperzlib",
+    "version": "1.0.0",
+    "url": "https://www.isekai.cn",
+    "descriptionmsg": "isekai-ve-color-desc",
+    "license-name": "MIT",
+    "type": "parserhook",
+    "MessagesDirs": {
+        "IsekaiColor": [
+            "i18n"
+        ]
+    },
+    "AutoloadClasses": {
+        "Isekai\\Color\\Hooks": "includes/Hooks.php",
+        "Isekai\\Color\\ColorTag": "includes/ColorTag.php",
+        "Isekai\\Color\\ColorTagHandler": "includes/ColorTagHandler.php",
+        "Isekai\\Color\\ColorProcessor": "includes/ColorProcessor.php"
+    },
+    "Hooks": {
+        "SetupAfterCache": "Isekai\\Color\\Hooks::initConfig",
+        "OutputPageBeforeHTML": "Isekai\\Color\\Hooks::onOutputPageBeforeHTML",
+        "ParserFirstCallInit": "Isekai\\Color\\ColorTag::onParserSetup"
+    },
+    "ResourceModules": {
+        "ve.ext.isekai.color": {
+            "scripts": [
+                "ve.ce.IsekaiColorNode.js",
+                "ve.dm.IsekaiColorNode.js",
+                "ve.ui.IsekaiColorAction.js",
+                "ve.ui.IsekaiColorTool.js",
+                "ve.ext.IsekaiColor.js"
+            ],
+            "styles": [
+                "ve.ui.isekaiColor.less"
+            ],
+            "dependencies": [
+                "ext.visualEditor.mwcore",
+                "ext.visualEditor.mwmeta",
+                "ext.visualEditor.desktopArticleTarget"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ],
+            "messages": []
+        },
+        "ext.isekai.color": {
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
+        },
+        "ext.isekai.color.light": {
+            "styles": [
+                "ext.isekai.color.light.less"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
+        },
+        "ext.isekai.color.dark": {
+            "styles": [
+                "ext.isekai.color.dark.less"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
+        }
+    },
+    "VisualEditorPluginModules": [
+        "ve.ext.isekai.color"
+    ],
+    "ParsoidModules": [{
+        "name": "IsekaiColor",
+        "tags": [{
+            "name": "color",
+            "handler": "Isekai\\Color\\ColorTagHandler"
+        }]
+    }],
+    "ResourceFileModulePaths": {
+        "localBasePath": "modules",
+        "remoteExtPath": "IsekaiColor/modules"
+    },
+    "config": {
+        "IsekaiColorThemes": {}
+    },
+    "manifest_version": 1
+}
