@@ -11,7 +11,7 @@ class Hooks {
             'vector' => 'light',
             'timeless' => 'light',
             'monobook' => 'light',
-            'minervaneue' => 'light',
+            'minerva' => 'light',
 
             'darkcosmos' => 'dark',
         ];
