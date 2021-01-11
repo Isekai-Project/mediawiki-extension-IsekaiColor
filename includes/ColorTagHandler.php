@@ -23,6 +23,7 @@ class ColorTagHandler extends ExtensionTagHandler {
 
     public function sourceToDom(ParsoidExtensionAPI $extApi, string $src, array $extArgs): \DOMDocument
     {
+        $src = preg_replace('/^([ ]*)([#*]+)/', '${1}<nowiki>${2}</nowiki>', $src);
         $args = $this->toArgs($extArgs);
         $content = $extApi->extTagToDOM(
             $extArgs,
