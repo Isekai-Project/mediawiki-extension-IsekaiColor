@@ -4,7 +4,7 @@
     "author": "Hyperzlib",
     "version": "1.0.0",
     "url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiColor",
-    "descriptionmsg": "isekai--color-desc",
+    "descriptionmsg": "isekai-color-desc",
     "license-name": "MIT",
     "type": "parserhook",
     "MessagesDirs": {
@@ -43,7 +43,7 @@
             ],
             "targets": [
                 "desktop",
-                "mobile"
+                "mobiles"
             ],
             "messages": [
                 "isekai-color-toolbar-color",

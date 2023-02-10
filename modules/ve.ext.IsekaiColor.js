@@ -23,6 +23,7 @@ function fixTarget(target) {
     });
 }
 
+console.log('fixTarget', ve.init.mw.targetFactory.registry);
 for (var name in ve.init.mw.targetFactory.registry) {
     fixTarget(ve.init.mw.targetFactory.lookup(name));
 }

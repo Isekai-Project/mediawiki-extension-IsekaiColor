@@ -1,0 +1,12 @@
+{
+    "isekai-color-desc": "Set highlight color",
+    "isekai-color": "Isekai Text Highlight Color",
+    "isekai-color-toolbar-color": "Color",
+    "isekai-color-none": "None",
+    "isekai-color-primary": "Primary",
+    "isekai-color-secondary": "Secondary",
+    "isekai-color-info": "Info",
+    "isekai-color-success": "Success/Green",
+    "isekai-color-warning": "Warning/Yellow",
+    "isekai-color-danger": "Important/Red"
+}

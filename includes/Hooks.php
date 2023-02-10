@@ -1,7 +1,6 @@
 <?php
 namespace Isekai\Color;
 
-use Skin;
 use OutputPage;
 
 class Hooks {
