@@ -16,7 +16,7 @@ OO.inheritClass(ve.dm.IsekaiColorNode, ve.dm.TextStyleAnnotation);
 
 /* Static Properties */
 ve.dm.IsekaiColorNode.static.name = 'color';
-ve.dm.IsekaiColorNode.static.group = 'color';
+ve.dm.IsekaiColorNode.static.group = 'IsekaiVEComponents';
 ve.dm.IsekaiColorNode.static.matchTagNames = ['span'];
 ve.dm.IsekaiColorNode.static.matchRdfaTypes = ['mw:Extension/color'];
 ve.dm.IsekaiColorNode.static.inferFromView = true;

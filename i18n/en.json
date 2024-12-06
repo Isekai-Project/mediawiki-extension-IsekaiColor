@@ -1,12 +1,12 @@
 {
-    "isekai-color-desc": "Set highlight color",
-    "isekai-color": "Isekai Text Highlight Color",
-    "isekai-color-toolbar-color": "Color",
-    "isekai-color-none": "None",
-    "isekai-color-primary": "Primary",
-    "isekai-color-secondary": "Secondary",
-    "isekai-color-info": "Info",
-    "isekai-color-success": "Success/Green",
-    "isekai-color-warning": "Warning/Yellow",
-    "isekai-color-danger": "Important/Red"
+    "isekai-vecmps": "Isekai VisualEditor Components",
+    "isekai-vecmps-desc": "Components for VisualEditor",
+    "isekai-vecmps-toolbar-color": "Color",
+    "isekai-vecmps-color-name-none": "None",
+    "isekai-vecmps-color-name-primary": "Primary",
+    "isekai-vecmps-color-name-secondary": "Secondary",
+    "isekai-vecmps-color-name-info": "Info",
+    "isekai-vecmps-color-name-success": "Success/Green",
+    "isekai-vecmps-color-name-warning": "Warning/Yellow",
+    "isekai-vecmps-color-name-danger": "Important/Red"
 }

@@ -1,7 +1,7 @@
 <?php
-namespace Isekai\Color;
+namespace Isekai\VEComponents\Color;
 
-use Parser;
+use MediaWiki\Parser\Parser;
 use PPFrame;
 
 class ColorTag {
@@ -15,10 +15,9 @@ class ColorTag {
     }
 
     public static function create($text, $params, Parser $parser, PPFrame $frame){
-        $parser->getOutput()->addModules(['ext.isekai.color']);
+        $parser->getOutput()->addModules(['ext.isekai.vecmps.color']);
 
         $parsedText = $parser->recursiveTagParse($text, $frame);
-        wfDebugLog('ColorTag', 'Parsed text: ' . $parsedText);
         if(isset($params['type']) && in_array($params['type'], self::ALLOW_TYPES)){
             return '<span class="isekai-text-' . $params['type'] . '">' . $parsedText . '</span>';
         } else {

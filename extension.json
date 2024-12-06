@@ -1,40 +1,41 @@
 {
-    "name": "Isekai VisualEditor Color",
-    "namemsg": "isekai-color",
+    "name": "IsekaiVEComponents",
+    "namemsg": "isekai-vecmps",
     "author": "Hyperzlib",
     "version": "1.0.0",
-    "url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiColor",
-    "descriptionmsg": "isekai-color-desc",
+    "url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiVEComponents",
+    "descriptionmsg": "isekai-vecmps-desc",
     "license-name": "MIT",
     "type": "parserhook",
     "MessagesDirs": {
-        "IsekaiColor": [
+        "IsekaiVEComponents": [
             "i18n"
         ]
     },
-    "AutoloadClasses": {
-        "Isekai\\Color\\Hooks": "includes/Hooks.php",
-        "Isekai\\Color\\ColorTag": "includes/ColorTag.php",
-        "Isekai\\Color\\ColorTagHandler": "includes/ColorTagHandler.php",
-        "Isekai\\Color\\ColorProcessor": "includes/ColorProcessor.php"
+    "AutoloadNamespaces": {
+        "Isekai\\VEComponents\\": "includes/"
     },
     "Hooks": {
-        "SetupAfterCache": "Isekai\\Color\\Hooks::initConfig",
-        "OutputPageBeforeHTML": "Isekai\\Color\\Hooks::onOutputPageBeforeHTML",
-        "ParserFirstCallInit": "Isekai\\Color\\ColorTag::onParserSetup"
+        "OutputPageBeforeHTML": [
+            "Isekai\\VEComponents\\Color\\ColorHooks::onOutputPageBeforeHTML"
+        ],
+        "ParserFirstCallInit": [
+            "Isekai\\VEComponents\\Color\\ColorTag::onParserSetup",
+            "Isekai\\VEComponents\\Grid\\GridTags::onParserSetup"
+        ]
     },
     "ResourceModules": {
-        "ve.ext.isekai.color": {
+        "ve.ext.isekai.vecmps.color": {
             "scripts": [
-                "ve.ce.IsekaiColorNode.js",
-                "ve.dm.IsekaiColorNode.js",
-                "ve.ui.IsekaiColorAction.js",
-                "ve.ui.IsekaiColorTool.js",
-                "ve.ext.IsekaiColor.js"
+                "color/ve.ce.IsekaiColorNode.js",
+                "color/ve.dm.IsekaiColorNode.js",
+                "color/ve.ui.IsekaiColorAction.js",
+                "color/ve.ui.IsekaiColorTool.js",
+                "color/ve.ext.IsekaiColor.js"
             ],
             "styles": [
-                "ve.ui.isekaiColor.less",
-                "ext.isekai.color.light.less"
+                "color/ve.ui.isekaiColor.less",
+                "color/ext.isekai.color.light.less"
             ],
             "dependencies": [
                 "ext.visualEditor.mwcore",
@@ -46,57 +47,107 @@
                 "mobiles"
             ],
             "messages": [
-                "isekai-color-toolbar-color",
-                "isekai-color-none",
-                "isekai-color-primary",
-                "isekai-color-secondary",
-                "isekai-color-info",
-                "isekai-color-success",
-                "isekai-color-warning",
-                "isekai-color-danger"
+                "isekai-vecmps-toolbar-color",
+                "isekai-vecmps-color-name-none",
+                "isekai-vecmps-color-name-primary",
+                "isekai-vecmps-color-name-secondary",
+                "isekai-vecmps-color-name-info",
+                "isekai-vecmps-color-name-success",
+                "isekai-vecmps-color-name-warning",
+                "isekai-vecmps-color-name-danger"
             ]
         },
-        "ext.isekai.color": {
-            "targets": [
-                "desktop",
-                "mobile"
-            ]
-        },
-        "ext.isekai.color.light": {
+        "ext.isekai.vecmps.color.light": {
             "styles": [
-                "ext.isekai.color.light.less"
+                "color/ext.isekai.color.light.less"
             ],
             "targets": [
                 "desktop",
                 "mobile"
             ]
         },
-        "ext.isekai.color.dark": {
+        "ext.isekai.vecmps.color.dark": {
             "styles": [
-                "ext.isekai.color.dark.less"
+                "color/ext.isekai.color.dark.less"
             ],
             "targets": [
                 "desktop",
                 "mobile"
+            ]
+        },
+        "ext.isekai.vecmps.grid": {
+            "styles": [
+                "grid/ext.isekai.grid.less"
+            ]
+        },
+        "ve.ext.isekai.vecmps.grid": {
+            "scripts": [
+                "grid/ve.ce.IsekaiGridEvents.js",
+                "grid/ve.ce.IsekaiGridRowNode.js",
+                "grid/ve.dm.IsekaiGridRowNode.js",
+                "grid/ve.ce.IsekaiGridColNode.js",
+                "grid/ve.dm.IsekaiGridColNode.js",
+                "grid/ve.ui.IsekaiGridContextItem.js"
+            ],
+            "styles": [
+                "grid/ext.isekai.grid.less",
+                "grid/ve.ext.isekai.grid.less"
+            ],
+            "dependencies": [
+                "ext.visualEditor.mwcore",
+                "ext.visualEditor.mwmeta"
             ]
         }
     },
-    "VisualEditorPluginModules": [
-        "ve.ext.isekai.color"
+    "ParsoidModules": [
+        {
+            "name": "IsekaiVEComponents",
+            "tags": [
+                {
+                    "name": "color",
+                    "handler": "Isekai\\VEComponents\\Color\\ColorTagHandler"
+                },
+                {
+                    "name": "row",
+                    "handler": "Isekai\\VEComponents\\Grid\\GridRowTagHandler"
+                },
+                {
+                    "name": "col",
+                    "handler": "Isekai\\VEComponents\\Grid\\GridColTagHandler"
+                }
+            ]
+        }
     ],
-    "ParsoidModules": [{
-        "name": "IsekaiColor",
-        "tags": [{
-            "name": "color",
-            "handler": "Isekai\\Color\\ColorTagHandler"
-        }]
-    }],
+    "attributes": {
+        "CodeMirror": {
+			"TagModes": {
+				"color": "text/mediawiki",
+                "row": "text/mediawiki",
+				"col": "text/mediawiki"
+			}
+		},
+		"VisualEditor": {
+			"PluginModules": [
+				"ve.ext.isekai.vecmps.color",
+                "ve.ext.isekai.vecmps.grid"
+			]
+		}
+	},
     "ResourceFileModulePaths": {
         "localBasePath": "modules",
-        "remoteExtPath": "IsekaiColor/modules"
+        "remoteExtPath": "IsekaiVEComponents/modules"
     },
     "config": {
-        "IsekaiColorThemes": {}
+        "IsekaiVEComponentsThemeColorScheme": {
+            "value": {
+                "vector": "light",
+                "timeless": "light",
+                "monobook": "light",
+                "minerva": "light",
+    
+                "darkcosmos": "dark"
+            }
+        }
     },
-    "manifest_version": 1
+    "manifest_version": 2
 }

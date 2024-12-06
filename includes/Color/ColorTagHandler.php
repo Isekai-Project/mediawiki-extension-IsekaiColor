@@ -1,17 +1,12 @@
 <?php
+namespace Isekai\VEComponents\Color;
 
-namespace Isekai\Color;
-
-use Exception;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
-use Wikimedia\Parsoid\Ext\DOMDataUtils;
+use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\ExtensionTagHandler;
-use Wikimedia\Parsoid\Ext\ExtensionModule;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
-use Wikimedia\Parsoid\Ext\WTUtils;
 use Wikimedia\Parsoid\Tokens\KV;
 use Wikimedia\Parsoid\Utils\DOMCompat;
-use Wikimedia\Parsoid\Utils\DOMUtils;
 
 class ColorTagHandler extends ExtensionTagHandler {
     public function toArgs(array $extArgs): array {
@@ -32,10 +27,9 @@ class ColorTagHandler extends ExtensionTagHandler {
             $extApi->addNewArg($extArgs, 'class', 'isekai-text-' . $args['type']);
             $extApi->addNewArg($extArgs, 'data-color', $args['type']);
         }
-        
+
         return $extApi->extTagToDOM(
             $extArgs,
-            '',
             $src,
             [
                 'wrapperTag' => 'span',
@@ -43,11 +37,11 @@ class ColorTagHandler extends ExtensionTagHandler {
                     'extTag' => 'color',
                     'context' => 'inline'
                 ],
-            ],
-        );;
+            ]
+        );
     }
 
-    public function getInnerWikitext(ParsoidExtensionAPI $extApi, \DOMElement $dom) {
+    public function getInnerWikitext(ParsoidExtensionAPI $extApi, Element $dom) {
         $wikiText = '';
         foreach ($dom->childNodes as $child) {
             if ($child instanceof \DOMText) {
@@ -59,7 +53,7 @@ class ColorTagHandler extends ExtensionTagHandler {
         return $wikiText;
     }
 
-    public function domToWikitext(ParsoidExtensionAPI $extApi, \DOMElement $node, bool $wrapperUnmodified): string {
+    public function domToWikitext(ParsoidExtensionAPI $extApi, Element $node, bool $wrapperUnmodified): string {
         $color = $node->getAttribute('data-color');
 
         if ($color) {

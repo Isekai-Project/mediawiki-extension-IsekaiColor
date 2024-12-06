@@ -30,7 +30,7 @@ ve.ce.IsekaiColorNode.static.allowedColor = ['primary', 'secondary', 'info', 'su
 /* Method */
 ve.ce.IsekaiColorNode.prototype.setColor = function(color) {
     var colorClass = 'isekai-text-' + color;
-    if (!this.$element.hasClass(colorClass)) { //颜色已经存在就不用重设了
+    if (!this.$element.hasClass(colorClass)) { // 颜色已经存在就不用重设了
         this.removeColors();
         if (this.constructor.static.allowedColor.indexOf(color) !== -1) {
             this.$element.addClass(colorClass);
